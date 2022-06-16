@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <script src="{% url 'js-catlog' %}"></script>
+    <script src="{% static '/admin/js/core.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'admin/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/widgets.css' %}">
+    <title>@tamerjar</title>
+    <style>body {
+        display: flex; 
+        justify-content: center; 
+        flex-direction: flex;
+        min-height: 100vh;
+        margin-top:100px;
+    }
+    body p {
+        align-self: center; 
+    }
+</style>
+</head>
+<br/>
+<body>
+
+    <form method="POST" class="text-center">
+        <h1>Find Out Booking Commision Based on Month!</h1>
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <input type="submit" name="Submit" id="submit">
+        <h1>Commision For {{ date.date }} is {{ obj }} %</h1>
+    </form>
+</body>
+</html>
